@@ -25,7 +25,7 @@ export default {
     name: "Navbar"
 }
 </script>
-<style scoped>
+<style>
 *
 {
     margin: 0%;
@@ -124,6 +124,14 @@ input[type= "text"]
 {
     color: #252375;
     background-color: white;
+}
+@media screen and (max-width: 927px) {
+
+
+  .search_form
+  {
+    display: none;
+  }
 }
 
 </style>

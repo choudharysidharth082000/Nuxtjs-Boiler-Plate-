@@ -1,6 +1,8 @@
 <template>
     <div class="containor">
 
+        
+
 <!-- left side in the login containor  -->
         <div id="containor_left" class="containor_left">
 
@@ -42,6 +44,7 @@
                         <input id="input1" type="email" placeholder="abc@gmail.com">
                         <input id="input2" type="password" placeholder="password">
                         <button @click="Loginbtn($event)" type="submit" class="loginbtn">Login!!!</button>
+                        
                     </form>
                 </div>
 
@@ -62,7 +65,9 @@ export default {
             // password:document.getElementById('input2').value
 
             email: String,
-            password: String
+            loginObject: null,
+            password: String,
+            
         }
 
     },
@@ -95,10 +100,22 @@ export default {
                    email : this.email,
                    password: this.password
                }
+            },
+            update()
+            {
+               (data)=>
+               {
+                   this.loginObject = data.login
+
+               }
             }
+            
+            
         }
 
     },
+    
+    
 
     
    
@@ -138,17 +155,10 @@ export default {
 
             this.email = emailForm;
             this.password= passwordForm
+            
 
-            // if(login.status == true)
-            // {
-            //     console.log("Successfully Logged in");
-            // }
-            // else 
-            // {
-            //     console.log('HE is not logged in');
-            // }
 
-            console.log();
+            window.location.replace("/adminPanel")
 
             
         }
@@ -185,6 +195,19 @@ a:hover
     
     flex-direction: row;
 }
+.signup
+{
+     height: 62px;
+    width: 494px;
+    background-color: white;
+    font-family: poppins,sans-serif;
+    border: 1px solid #252376 ;
+    font-weight: 600;
+    color: #252376;
+    font-size: 20px;
+    margin-top: 20px;
+    transition: 0.6s ease;
+}
 .right_back 
 {
     width: 100%;
@@ -206,7 +229,7 @@ a:hover
 .containor_left
 {
     width: 60%;
-    height: 100vh;
+    height: 100%;
     background-color: #252376;
     display: flex;
     justify-content: center;
@@ -269,6 +292,7 @@ a:hover
     font-weight: 700;
     font-size: 30px;
     border-radius: 10px;
+    margin-bottom: 55px;
     color: #252376;
     
     transition: 0.6s ease;
@@ -306,7 +330,7 @@ a:hover
 .containor_right
 {
     width: 50%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items:center;
@@ -316,8 +340,8 @@ a:hover
 
 .right_main
 {
-    width: 90%;
-    height: 90vh;
+    width: 100%;
+    height: 100%;
     
     display: flex;
     flex-direction: column;
@@ -326,12 +350,14 @@ a:hover
 .right_main_header
 {
     width: 100%;
-    height: 30%;
+    height: 200px;
     
 
     display: flex;
     
+    
     justify-content: center;
+    
     align-items: center;
     
     
@@ -430,9 +456,9 @@ input[type= "text"]
       display: block;
      
   }
-  h1
+  .left_header h1
   {
-      font-size: 55px;
+      font-size: 50px;
       
   }
 
@@ -440,13 +466,74 @@ input[type= "text"]
   {
       width: 100%;
       
+      
   }
   .containor_right
   {
       
       display: none;
   }
+   .left_header
+    {
+        height: 100vh;
+    }
+    .shopbtn
+    {
+        height: 80px;
+        width: 270px;
+    }
+    .right_main_header h1
+    {
+        font-size: 55px;
+    }
+        right_main_form
+{
+    width: 100%;
+    height: 80%;
+    
+    display: flex;
+    justify-content: center;
+    /* background-color: black; */
+    align-items: center;
+    flex-direction: column;
 }
+
+input
+{
+    width: 100%;
+}
+
+form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#input1, #input2
+{
+    background-color: #d8d8e41f;
+    border: none ;
+    height: 62px;
+    width: 414px;
+    border-radius: 9px;
+    margin: 10px;
+    border: 0.5px solid rgba(0, 0, 0, 38%);
+    
+    outline: none;
+    
+}
+.loginbtn
+{
+     height: 62px;
+    width: 414px;
+    margin-bottom: 90px;
+}
+
+
+}
+
 
 
 

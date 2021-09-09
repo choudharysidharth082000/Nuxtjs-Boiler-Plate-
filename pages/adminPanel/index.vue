@@ -2,6 +2,17 @@
  <div class="containor_main">
     <Navbar />
 
+    <div class="containor_options">
+
+      
+        <div class="button3">
+
+            <button class=" btn-success add"><nuxt-link to="/adminpanel/createItems">Add Item</nuxt-link></button>
+
+        </div>
+
+    </div>
+
 
     <div class="items_containor">
 
@@ -10,7 +21,7 @@
 
          <div class="cards" v-for="item in itemList" :key= "item._id">
 
-           <Card class="original" :heading="item.heading" :discription= "item.discription" :image= "item.ImageURL"/>
+           <CardAdmin class="original" :heading="item.heading" :discription= "item.discription" :image= "item.ImageURL" :id= "item._id"/>
 
          </div>
       </div>
@@ -32,7 +43,7 @@
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue';
+import Navbar from '../../components/Navbar.vue';
 import gql from 'graphql-tag';
 export default {
 
@@ -69,6 +80,11 @@ export default {
   box-sizing: border-box;
   font-family: poppins,sans-serif;
 }
+a
+{
+    text-decoration: none;
+    color: white;
+}
 .items_containor
 {
   width: 100%;
@@ -97,6 +113,28 @@ export default {
 {
   margin: 30px;
 }
+
+.containor_options 
+{
+    width: 100%;
+    height: 100px;
+    
+}
+.button3
+{
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add
+{
+    border: none;
+    width: 100%;
+    height: 40px;
+
+}
+
 
 @media screen and (max-width: 927px) {
 
